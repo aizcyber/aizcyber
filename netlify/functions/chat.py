@@ -13,7 +13,7 @@ def handler(event, context):
 
     try:
         client = Cerebras(api_key=c_key)
-        response = client.chat.completions.create(
+        response = client.chat.completion.create(
             model="llama-3.3-70b",
             messages=[{"role": "system", "content": "Sen Aizonai AI'sın."}, {"role": "user", "content": question}]
         )
@@ -29,4 +29,5 @@ def handler(event, context):
     return {
         'statusCode': 200,
         'body': json.dumps({'reply': reply})
+
     }
